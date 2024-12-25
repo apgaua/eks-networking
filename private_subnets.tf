@@ -9,7 +9,7 @@ resource "aws_subnet" "private" {
   }
 
   depends_on = [
-    aws_vpc_ipv4_cidr_block_association.main
+    module.vpc.aws_vpc_ipv4_cidr_block_association
   ]
 }
 
