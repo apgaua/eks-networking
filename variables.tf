@@ -11,6 +11,16 @@ variable "vpc_cidr" {
   description = "CIDR principal"
 }
 
+variable "cidr_blocks" {
+  type        = string
+  description = "Blocos CIDR"
+}
+
+variable "availability_zones" {
+  type        = string
+  description = "Zonas de disponibilidade"
+}
+
 variable "vpc_additional_cidrs" {
   type        = list(string)
   description = "CIDRs adicionais"
@@ -35,12 +45,13 @@ variable "private_subnets" {
   }))
 }
 
-variable "database_subnets" {
-  description = "Lista de subnets de banco de dados"
-  default     = []
-  type = list(object({
-    name              = string
-    cidr              = string
-    availability_zone = string
-  }))
+variable "database_subnet_az" {
+  type        = list(string)
+  description = "List of availability zones"
 }
+
+variable "database_subnet_cidr" {
+  type        = list(string)
+  description = "List of CIDR blocks for private subnets"
+}
+

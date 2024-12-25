@@ -13,16 +13,12 @@
 #   ]
 # }
 
-module "database_subnet" {
+module "database_subnets" {
   source               = "github.com/apgaua/terraform-modules//subnet-module/"
-  count = length(var.database_subnets)
   vpc_id = module.vpc.vpc_id
-  cidr_block = var.database_subnets[count.index].cidr
-  availability_zone = var.database_subnets[count.index].availability_zone
-
-  tags = {
-    Name = var.database_subnets[count.index].name
-  }
+  name = "Subnet database"
+  cidr_blocks = var.database_subnet_cidr
+  availability_zones = var.database_subnet_az
 }
 
 
