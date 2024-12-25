@@ -1,17 +1,30 @@
-resource "aws_subnet" "database" {
-  count             = length(var.database_subnets)
-  vpc_id            = module.vpc.vpc_id
-  cidr_block        = var.database_subnets[count.index].cidr
+# resource "aws_subnet" "database" {
+#   count             = length(var.database_subnets)
+#   vpc_id            = module.vpc.vpc_id
+#   cidr_block        = var.database_subnets[count.index].cidr
+#   availability_zone = var.database_subnets[count.index].availability_zone
+
+#   tags = {
+#     Name = var.database_subnets[count.index].name
+#   }
+
+#   depends_on = [
+#     module.vpc.aws_vpc_ipv4_cidr_block_association
+#   ]
+# }
+
+module "database_subnet" {
+  source               = "github.com/apgaua/terraform-modules//subnet-module/"
+  count = length(var.database_subnets)
+  vpc_id = module.vpc.vpc_id
+  cidr_block = var.database_subnets[count.index].cidr
   availability_zone = var.database_subnets[count.index].availability_zone
 
   tags = {
     Name = var.database_subnets[count.index].name
   }
-
-  depends_on = [
-    module.vpc.aws_vpc_ipv4_cidr_block_association
-  ]
 }
+
 
 resource "aws_network_acl" "database" {
   vpc_id = module.vpc.vpc_id
