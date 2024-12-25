@@ -1,6 +1,6 @@
 resource "aws_subnet" "database" {
   count             = length(var.database_subnets)
-  vpc_id            = aws_vpc.main.id
+  vpc_id            = module.vpc.vpc_id
   cidr_block        = var.database_subnets[count.index].cidr
   availability_zone = var.database_subnets[count.index].availability_zone
 
@@ -14,7 +14,7 @@ resource "aws_subnet" "database" {
 }
 
 resource "aws_network_acl" "database" {
-  vpc_id = aws_vpc.main.id
+  vpc_id = module.vpc.vpc_id
 
   egress {
     rule_no    = 200
