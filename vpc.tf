@@ -8,7 +8,7 @@
 #   }
 # }
 module "vpc" {
-  source               = "https://github.com/apgaua/terraform-modules//vpc-module/"
+  source               = "github.com/apgaua/terraform-modules//vpc-module/"
   vpc_cidr             = var.vpc_cidr
   project_name         = var.project_name
   vpc_additional_cidrs = var.vpc_additional_cidrs
@@ -16,12 +16,12 @@ module "vpc" {
 
 # resource "aws_vpc_ipv4_cidr_block_association" "main" {
 #   count      = length(var.vpc_additional_cidrs)
-#   vpc_id     = aws_vpc.main.id
+#   vpc_id     = module.vpc.vpc_id
 #   cidr_block = var.vpc_additional_cidrs[count.index]
 # }
 
 resource "aws_route_table" "public_internet_access" {
-  vpc_id = aws_vpc.main.id
+  vpc_id = module.vpc.vpc_id
 
   tags = {
     Name = "$(var.project_name)-public-access"
