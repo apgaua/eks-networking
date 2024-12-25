@@ -1,8 +1,8 @@
-resource "aws_ssm_parameter" "vpc" {
-  name  = "/${var.project_name}/vpc/id"
-  type  = "String"
-  value = aws_vpc.main.id
-}
+# resource "aws_ssm_parameter" "vpc" {
+#   name  = "/${var.project_name}/vpc/id"
+#   type  = "String"
+#   value = aws_vpc.main.id
+# }
 
 resource "aws_ssm_parameter" "public_subnets" {
   count = length(aws_subnet.public)
