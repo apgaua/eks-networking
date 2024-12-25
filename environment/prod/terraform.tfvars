@@ -21,3 +21,52 @@ public_subnets = [{
     availability_zone = "us-east-1a"
   }
 ]
+
+private_subnets = [{
+  name              = "eks-private-1a"
+  cidr              = "10.0.0.0/20"
+  availability_zone = "us-east-1a"
+  },
+  {
+    name              = "eks-private-1b"
+    cidr              = "10.0.16.0/20"
+    availability_zone = "us-east-1b"
+  },
+  {
+    name              = "eks-private-1c"
+    cidr              = "10.0.32.0/20"
+    availability_zone = "us-east-1a"
+  },
+  {
+    name              = "eks-pods-1a"
+    cidr              = "100.64.0.0/18"
+    availability_zone = "us-east-1a"
+  },
+  {
+    name              = "eks-pods-1b"
+    cidr              = "100.64.64.0/18"
+    availability_zone = "us-east-1b"
+  },
+  {
+    name              = "eks-pods-1c"
+    cidr              = "100.64.128.0/18"
+    availability_zone = "us-east-1a"
+  }
+]
+
+database_subnets = [{
+  name              = "eks-database-1a"
+  cidr              = "10.0.51.0/24"
+  availability_zone = "us-east-1a"
+  },
+  {
+    name              = "eks-database-1b"
+    cidr              = "10.0.52.0/24"
+    availability_zone = "us-east-1b"
+  },
+  {
+    name              = "eks-database-1c"
+    cidr              = "10.0.53.0/24"
+    availability_zone = "us-east-1a"
+  }
+]

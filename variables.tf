@@ -25,3 +25,22 @@ variable "public_subnets" {
     availability_zone = string
   }))
 }
+
+variable "private_subnets" {
+  description = "Lista de subnets privadas"
+  type = list(object({
+    name              = string
+    cidr              = string
+    availability_zone = string
+  }))
+}
+
+variable "database_subnets" {
+  description = "Lista de subnets de banco de dados"
+  default     = []
+  type = list(object({
+    name              = string
+    cidr              = string
+    availability_zone = string
+  }))
+}
