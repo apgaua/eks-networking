@@ -35,7 +35,7 @@ private_subnets = [{
   {
     name              = "eks-private-1c"
     cidr              = "10.0.32.0/20"
-    availability_zone = "us-east-1a"
+    availability_zone = "us-east-1c"
   },
   {
     name              = "eks-pods-1a"
@@ -50,11 +50,29 @@ private_subnets = [{
   {
     name              = "eks-pods-1c"
     cidr              = "100.64.128.0/18"
-    availability_zone = "us-east-1a"
+    availability_zone = "us-east-1c"
   }
 ]
-public_subnet_az  = ["us-east-1a", "us-east-1b", "us-east-1c"]
-private_subnet_az  = ["us-east-1a", "us-east-1b", "us-east-1c"]
-database_subnet_az  = ["us-east-1a", "us-east-1b", "us-east-1c"]
 
-database_subnet_cidr = ["10.0.51.0/24", "10.0.52.0/24", "10.0.53.0/24"]
+database_subnets = [{
+  name              = "eks-database-1a"
+  cidr              = "10.0.51.0/24"
+  availability_zone = "us-east-1a"
+  },
+  {
+    name              = "eks-database-1b"
+    cidr              = "10.0.52.0/24"
+    availability_zone = "us-east-1b"
+  },
+  {
+    name              = "eks-database-1c"
+    cidr              = "10.0.53.0/24"
+    availability_zone = "us-east-1c"
+  }
+]
+
+# public_subnet_az  = ["us-east-1a", "us-east-1b", "us-east-1c"]
+# private_subnet_az  = ["us-east-1a", "us-east-1b", "us-east-1c"]
+# database_subnet_az  = ["us-east-1a", "us-east-1b", "us-east-1c"]
+
+# database_subnet_cidr = ["10.0.51.0/24", "10.0.52.0/24", "10.0.53.0/24"]
