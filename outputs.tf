@@ -10,6 +10,6 @@ output "private_subnets" {
   value = aws_ssm_parameter.private_subnets[*].id
 }
 
-# output "database_subnets" {
-#   value = aws_ssm_parameter.database_subnets[*].id
-# }
+output "database_subnets" {
+  value = aws_ssm_parameter.database_subnets[*].id
+}

@@ -18,9 +18,9 @@ resource "aws_ssm_parameter" "private_subnets" {
   value = aws_subnet.private[count.index].id
 }
 
-# resource "aws_ssm_parameter" "database_subnets" {
-#   count = length(aws_subnet.database)
-#   name  = "/${var.project_name}/subnets/database/${var.database_subnets[count.index].availability_zone}/${var.database_subnets[count.index].name}"
-#   type  = "String"
-#   value = aws_subnet.database[count.index].id
-# }
+resource "aws_ssm_parameter" "database_subnets" {
+  count = length(aws_subnet.database)
+  name  = "/${var.project_name}/subnets/database/${var.database_subnets[count.index].availability_zone}/${var.database_subnets[count.index].name}"
+  type  = "String"
+  value = aws_subnet.database[count.index].id
+}
