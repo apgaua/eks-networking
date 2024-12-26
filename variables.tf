@@ -45,13 +45,21 @@ variable "private_subnets" {
   }))
 }
 
+variable "database_subnets" {
+  description = "Lista de subnets privadas"
+  type = list(object({
+    name              = string
+    cidr              = string
+    availability_zone = string
+  }))
+}
+
 variable "database_subnet_az" {
-  type        = list(string)
-  description = "List of availability zones"
+  description = "Lista de AZ da subrede"
+  type = string
 }
 
 variable "database_subnet_cidr" {
-  type        = list(string)
-  description = "List of CIDR blocks for private subnets"
+  description = "CIDR da subnet"
+  type = string
 }
-
