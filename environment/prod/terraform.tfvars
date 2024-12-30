@@ -18,7 +18,7 @@ public_subnets = [{
   {
     name              = "eks-public-1c"
     cidr              = "10.0.50.0/24"
-    availability_zone = "us-east-1a"
+    availability_zone = "us-east-1c"
   }
 ]
 

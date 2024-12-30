@@ -1,5 +1,6 @@
 module "vpc" {
-  source               = "github.com/apgaua/terraform-modules//vpc-module/"
+#  source               = "github.com/apgaua/terraform-modules//vpc-module/"
+  source               = "../../terraform-modules/vpc-module"
   vpc_cidr             = var.vpc_cidr
   project_name         = var.project_name
   vpc_additional_cidrs = var.vpc_additional_cidrs
