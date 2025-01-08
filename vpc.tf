@@ -1,4 +1,4 @@
-module "vpc" {
+module "network" {
   source = "github.com/apgaua/terraform-modules//vpc-module/"
   # source               = "../../terraform-modules/vpc-module"
   name                 = var.project_name
