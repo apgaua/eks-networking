@@ -1,55 +1,68 @@
 variable "project_name" {
   type = string
 }
-
 variable "region" {
   type = string
 }
-
 variable "vpc_cidr" {
-  type        = string
-  description = "CIDR principal"
+  type = string
 }
-
-# variable "cidr_blocks" {
-#   type        = string
-#   description = "Blocos CIDR"
-# }
-
-# variable "availability_zones" {
-#   type        = string
-#   description = "Zonas de disponibilidade"
-# }
-
 variable "vpc_additional_cidrs" {
   type        = list(string)
-  description = "CIDRs adicionais"
-  default     = [""]
+  description = "Additional VPC CIDRs"
+  default = [ ]
 }
 
-variable "public_subnets" {
-  description = "Lista de subnets publicas"
+##################################################
+############### PUBLIC SUBNET ####################
+##################################################
+
+variable "publicsubnets" {
   type = list(object({
     name              = string
     cidr              = string
     availability_zone = string
   }))
+  description = "Public subnet values"
 }
 
-variable "private_subnets" {
-  description = "Lista de subnets privadas"
+##################################################
+############### PRIVATE SUBNET ###################
+##################################################
+
+variable "privatesubnets" {
   type = list(object({
     name              = string
     cidr              = string
     availability_zone = string
   }))
+  description = "Private subnet values"
 }
 
-variable "database_subnets" {
-  description = "Lista de subnets privadas"
+##################################################
+################ DATABASE SUBNET #################
+##################################################
+
+variable "databasesubnets" {
   type = list(object({
     name              = string
     cidr              = string
     availability_zone = string
   }))
+  description = "Database subnet values"
+}
+
+##################################################
+############### DATABASE NACL ####################
+##################################################
+
+variable "database_nacl_rules" {
+  type = list(object({
+    rule_start_number = number
+    rule_action       = string
+    protocol          = string
+    from_port         = optional(number)
+    to_port           = optional(number)
+  }))
+  description = "ACL rule to database subnet"
 }
