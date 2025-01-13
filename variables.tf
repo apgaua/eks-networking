@@ -10,7 +10,7 @@ variable "vpc_cidr" {
 variable "vpc_additional_cidrs" {
   type        = list(string)
   description = "Additional VPC CIDRs"
-  default = [ ]
+  default     = []
 }
 
 ##################################################

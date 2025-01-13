@@ -1,5 +1,7 @@
 module "network" {
+  # source               = "github.com/apgaua/terraform-modules//networking-module/"
   source               = "github.com/apgaua/terraform-modules//networking-module/"
+
   project_name         = var.project_name
   vpc_cidr             = var.vpc_cidr
   vpc_additional_cidrs = var.vpc_additional_cidrs
