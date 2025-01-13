@@ -1,5 +1,5 @@
 output "vpc_id" {
-  value = module.network.ssm_vpc_id
+  value = module.network.vpc_id
 }
 
 output "vpc_additional_cidrs" {
