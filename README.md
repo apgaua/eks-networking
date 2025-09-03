@@ -26,6 +26,12 @@ inframap generate ./ --raw | dot -Tpng > diagrama.png
 ## Estrutura
 ![Estrutura terraform](diagrama.png)
 
+## Dependencia
+| Project | Priority | URL | Description |
+|---------|----------|-----|-------------|
+| This one | 1 | https://github.com/apgaua/eks-networking | VPC structure to deploy EKS |
+| EKS Vanilla | 2 | https://github.com/apgaua/eks-vanilla | EKS Basic deployment |
+
 <!-- NAO PREENCHA ABAIXO DESTA LINHA-->
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
