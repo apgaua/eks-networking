@@ -12,16 +12,17 @@ variable "vpc_additional_cidrs" {
   description = "Additional VPC CIDRs"
 }
 
+variable "default_tags" {
+  type        = map(string)
+  description = "Default tags to be set in resources"
+}
+
 ##################################################
 ############### PUBLIC SUBNET ####################
 ##################################################
 
 variable "publicsubnets" {
-  type = list(object({
-    name              = string
-    cidr              = string
-    availability_zone = string
-  }))
+  type        = list(string)
   description = "Public subnet values"
 }
 
@@ -30,12 +31,13 @@ variable "publicsubnets" {
 ##################################################
 
 variable "privatesubnets" {
-  type = list(object({
-    name              = string
-    cidr              = string
-    availability_zone = string
-  }))
+  type        = list(string)
   description = "Private subnet values"
+}
+
+variable "podsubnets" {
+  type        = list(string)
+  description = "POD subnet values"
 }
 
 ##################################################
@@ -43,11 +45,7 @@ variable "privatesubnets" {
 ##################################################
 
 variable "databasesubnets" {
-  type = list(object({
-    name              = string
-    cidr              = string
-    availability_zone = string
-  }))
+  type        = list(string)
   description = "Database subnet values"
 }
 
@@ -56,12 +54,13 @@ variable "databasesubnets" {
 ##################################################
 
 variable "database_nacl_rules" {
-  type = list(object({
-    rule_start_number = number
-    rule_action       = string
-    protocol          = string
-    from_port         = optional(number)
-    to_port           = optional(number)
-  }))
+  # type = list(object({
+  #   rule_start_number = number
+  #   rule_action       = string
+  #   protocol          = string
+  #   from_port         = optional(number)
+  #   to_port           = optional(number)
+  # }))
+  type        = list(map(string))
   description = "ACL rule to database subnet"
 }

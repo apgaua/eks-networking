@@ -1,0 +1,34 @@
+name: Generate terraform docs
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  tfdocs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{ github.ref }}
+        
+    - name: Render terraform docs inside the README.md and push changes back to PR branch
+      uses: terraform-docs/gh-actions@v1.3.0
+      with:
+        working-dir: .
+        output-file: README.md
+        output-method: inject
+        git-push: "true"
+
+  # inframap:
+  #   name: Create inframap diagram
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #    - name: Checkout
+  #      uses: actions/checkout@v3
+    
+  #    - name: Create & commit diagram with PR
+  #      uses: erzz/inframap-action@v1
+  #      with:
+  #       plan-files: ./
+  #       output-filename: diagrama.png
