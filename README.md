@@ -9,19 +9,13 @@ Graphviz
 
 ## Commands
 
-Operacao terraform
-terraform fmt --recursive
-terraform init -backend-config=environment/dev/backend.tfvars
-terraform validate
-
-Criacao de infra
-terraform apply -auto-approve -var-file=environment/dev/terraform.tfvars
-
-Destruicao de infra
-terraform destroy -auto-approve -var-file=environment/dev/terraform.tfvars
-
-Criacao de diagrama
-inframap generate ./ --raw | dot -Tpng > diagrama.png
+| Terraform | Description |
+|--------------------|-------------|
+| terraform fmt --recursive | Format terraform files |
+| terraform init -backend-config=environment/dev/backend.tfvars | Init terraform backend config|
+| terraform validate | Validate terraform workflow |
+| terraform apply -auto-approve -var-file=environment/dev/terraform.tfvars | Create structure |
+| terraform destroy -auto-approve -var-file=environment/dev/terraform.tfvars | Destroy structure |
 
 ## Estrutura
 ![Estrutura terraform](diagrama.png)
