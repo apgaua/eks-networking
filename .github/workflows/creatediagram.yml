@@ -1,0 +1,56 @@
+name: Generate Terraform Diagram with Inframap (Artifact)
+
+on:
+  pull_request:
+    paths:
+      - '**.tf'
+      - '**.tfvars'
+
+jobs:
+  generate-diagram:
+    name: Generate Diagram
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the repository code
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # 2. Install Terraform CLI
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.6.0 # Or your desired version
+
+      # 3. Download and install the Infracost CLI, which includes Inframap.
+      - name: Install Infracost (for Inframap)
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | sh
+
+      # 4. Install Graphviz. This is needed to convert the DOT file to PNG.
+      - name: Install Graphviz
+        run: sudo apt-get update && sudo apt-get install -y graphviz
+
+      # 5. Initialize Terraform. This is necessary for Inframap to parse
+      #    the configuration and its modules.
+      #    -backend=false is used because we don't need state for a graph.
+      - name: Terraform Init
+        run: terraform init -backend=false
+
+      # 6. Generate the diagram's source file using Inframap.
+      #    This command reads the Terraform configuration and outputs a DOT file.
+      - name: Generate diagram source with Inframap
+        run: infracost inframap --path . --output terraform-diagram.dot
+
+      # 7. Convert the DOT file to a PNG image.
+      - name: Convert diagram to PNG
+        run: dot -Tpng terraform-diagram.dot -o terraform-diagram.png
+
+      # 8. Upload the generated diagram as a workflow artifact.
+      #    You can find this file in the "Artifacts" section of the
+      #    completed workflow run on GitHub.
+      - name: Upload Diagram Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: project-diagram
+          path: project-diagram.png

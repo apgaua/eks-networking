@@ -11,7 +11,7 @@
 | terraform apply -auto-approve -var-file=environment/dev/terraform.tfvars | Create structure |
 | terraform destroy -auto-approve -var-file=environment/dev/terraform.tfvars | Destroy structure |
 
-## Estrutura
+## Structure
 ![Estrutura terraform](diagrama.png)
 
 ## Repository dependency
