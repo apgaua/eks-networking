@@ -1,12 +1,6 @@
 
 # EKS Course repository
 
-## Requirements
-
-Terraform
-Inframap
-Graphviz
-
 ## Commands
 
 | Terraform | Description |
