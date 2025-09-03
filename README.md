@@ -1,5 +1,5 @@
 
-# Repo do curso EKS
+# EKS Course repository
 
 ## Requirements
 
@@ -7,7 +7,7 @@ Terraform
 Inframap
 Graphviz
 
-## Comandos
+## Commands
 
 Operacao terraform
 terraform fmt --recursive
@@ -26,7 +26,7 @@ inframap generate ./ --raw | dot -Tpng > diagrama.png
 ## Estrutura
 ![Estrutura terraform](diagrama.png)
 
-## Dependencia
+## Repository dependency
 | Project | Priority | URL | Description |
 |---------|----------|-----|-------------|
 | This one | 1 | https://github.com/apgaua/eks-networking | VPC structure to deploy EKS |
