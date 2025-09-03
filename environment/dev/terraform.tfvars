@@ -8,7 +8,6 @@ default_tags = {
     Curso   = "Arquitetura de Containers - EKS"
     Dia     = "Dia18-Networking"
     Repo    = "https://github.com/apgaua/eks-networking"
-    Modules  = "networking-module"
   }
 
 ################### PUBLIC ##############
