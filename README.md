@@ -13,6 +13,7 @@
 
 ## Structure
 ![Estrutura terraform](diagrama.png)
+Retry
 
 ## Repository dependency
 | Project | Priority | URL | Description |
