@@ -1,30 +1,24 @@
 
-# Repo do curso EKS
+# EKS Course repository
 
-## Requirements
+## Commands
 
-Terraform
-Inframap
-Graphviz
+| Terraform | Description |
+|--------------------|-------------|
+| terraform fmt --recursive | Format terraform files |
+| terraform init -backend-config=environment/dev/backend.tfvars | Init terraform backend config|
+| terraform validate | Validate terraform workflow |
+| terraform apply -auto-approve -var-file=environment/dev/terraform.tfvars | Create structure |
+| terraform destroy -auto-approve -var-file=environment/dev/terraform.tfvars | Destroy structure |
 
-## Comandos
-
-Operacao terraform
-terraform fmt --recursive
-terraform init -backend-config=environment/dev/backend.tfvars
-terraform validate
-
-Criacao de infra
-terraform apply -auto-approve -var-file=environment/dev/terraform.tfvars
-
-Destruicao de infra
-terraform destroy -auto-approve -var-file=environment/dev/terraform.tfvars
-
-Criacao de diagrama
-inframap generate ./ --raw | dot -Tpng > diagrama.png
-
-## Estrutura
+## Structure
 ![Estrutura terraform](diagrama.png)
+
+## Repository dependency
+| Project | Priority | URL | Description |
+|---------|----------|-----|-------------|
+| This one | 1 | https://github.com/apgaua/eks-networking | VPC structure to deploy EKS |
+| EKS Vanilla | 2 | https://github.com/apgaua/eks-vanilla | EKS Basic deployment |
 
 <!-- NAO PREENCHA ABAIXO DESTA LINHA-->
 <!-- BEGIN_TF_DOCS -->
