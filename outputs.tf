@@ -2,10 +2,6 @@ output "vpc_id" {
   value = module.network.ssm_vpc_id
 }
 
-# output "vpc_additional_cidrs" {
-#   value = module.network.vpc_additional_cidrs
-# }
-
 output "public_subnets" {
   value       = module.network.ssm_public_subnets
   description = "SSM Parameters about public subnets id"
