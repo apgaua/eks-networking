@@ -26,6 +26,12 @@ variable "publicsubnets" {
   description = "Public subnet values"
 }
 
+variable "singlenat" {
+  type        = bool
+  description = "If true, create a single NAT Gateway in the first AZ. If false, create a NAT Gateway in each public subnet."
+  default     = true
+}
+
 ##################################################
 ############### PRIVATE SUBNET ###################
 ##################################################
