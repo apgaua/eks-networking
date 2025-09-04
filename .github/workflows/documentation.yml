@@ -8,7 +8,7 @@ jobs:
   tfdocs:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v3
       with:
         ref: ${{ github.ref }}
         
@@ -19,16 +19,3 @@ jobs:
         output-file: README.md
         output-method: inject
         git-push: "true"
-
-  # inframap:
-  #   name: Create inframap diagram
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #    - name: Checkout
-  #      uses: actions/checkout@v3
-    
-  #    - name: Create & commit diagram with PR
-  #      uses: erzz/inframap-action@v1
-  #      with:
-  #       plan-files: ./
-  #       output-filename: diagrama.png
