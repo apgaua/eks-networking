@@ -12,7 +12,7 @@ default_tags = {
 
 ################### PUBLIC ##############
 publicsubnets = ["10.0.48.0/24", "10.0.49.0/24", "10.0.50.0/24"]
-singlenat = true # true = 1 AZ, false = Multi-AZ | Default: true
+singlenat     = true # true = 1 AZ, false = Multi-AZ | Default: true
 
 ############### PRIVATE AND PODS ########
 privatesubnets = ["10.0.0.0/20", "10.0.16.0/20", "10.0.32.0/20"]
