@@ -60,13 +60,6 @@ variable "databasesubnets" {
 ##################################################
 
 variable "database_nacl_rules" {
-  # type = list(object({
-  #   rule_start_number = number
-  #   rule_action       = string
-  #   protocol          = string
-  #   from_port         = optional(number)
-  #   to_port           = optional(number)
-  # }))
   type        = list(map(string))
   description = "ACL rule to database subnet"
 }
