@@ -17,6 +17,8 @@ variable "default_tags" {
   description = "Default tags to be set in resources"
 }
 
+
+
 ##################################################
 ############### PUBLIC SUBNET ####################
 ##################################################
@@ -30,6 +32,12 @@ variable "singlenat" {
   type        = bool
   description = "If true, create a single NAT Gateway in the first AZ. If false, create a NAT Gateway in each public subnet."
   default     = true
+}
+
+variable "nat_gateway_type" {
+  type        = string
+  description = "Type of NAT Gateway to create: GATEWAY or INSTANCE"
+  default     = "INSTANCE"
 }
 
 ##################################################
