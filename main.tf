@@ -6,10 +6,10 @@ module "network" {
   default_tags         = var.default_tags
   region               = var.region
   singlenat            = var.singlenat
-  nat_gateway_type    = var.nat_gateway_type # GATEWAY | INSTANCE
-  privatesubnets       = var.privatesubnets
-  publicsubnets        = var.publicsubnets
-  podsubnets           = var.podsubnets
-  databasesubnets      = var.databasesubnets
-  database_nacl_rules  = var.database_nacl_rules
+  # nat_gateway_type    = var.nat_gateway_type # GATEWAY | INSTANCE
+  privatesubnets      = var.privatesubnets
+  publicsubnets       = var.publicsubnets
+  podsubnets          = var.podsubnets
+  databasesubnets     = var.databasesubnets
+  database_nacl_rules = var.database_nacl_rules
 }
