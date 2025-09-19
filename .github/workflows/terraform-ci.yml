@@ -27,7 +27,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: 1.6.0 # Specify your desired Terraform version
+          terraform_version: 1.13.3 # Specify your desired Terraform version
 
       # Step 3: Initialize Terraform
       # This is good practice, especially if you add plan/validate steps later
