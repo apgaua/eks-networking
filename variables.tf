@@ -1,11 +1,14 @@
 variable "project_name" {
   type = string
+  description = "Name of the project, it will be used in the tags and naming of resources"
 }
 variable "region" {
   type = string
+  description = "The AWS region that the structure will be deployed"
 }
 variable "vpc_cidr" {
   type = string
+  description = "Main VPC CIDR"
 }
 variable "vpc_additional_cidrs" {
   type        = list(string)
@@ -16,8 +19,6 @@ variable "default_tags" {
   type        = map(string)
   description = "Default tags to be set in resources"
 }
-
-
 
 ##################################################
 ############### PUBLIC SUBNET ####################
@@ -30,7 +31,7 @@ variable "publicsubnets" {
 
 variable "singlenat" {
   type        = bool
-  description = "If true, create a single NAT Gateway in the first AZ. If false, create a NAT Gateway in each public subnet."
+  description = "If true, create a single NAT Gateway/Instance in the first AZ. If false, create a NAT Gateway/Instance in each public subnet."
   default     = true
 }
 
@@ -46,12 +47,12 @@ variable "nat_gateway_type" {
 
 variable "privatesubnets" {
   type        = list(string)
-  description = "Private subnet values"
+  description = "Networks for private subnets"
 }
 
 variable "podsubnets" {
   type        = list(string)
-  description = "POD subnet values"
+  description = "Networks for POD subnets"
 }
 
 ##################################################
@@ -60,7 +61,7 @@ variable "podsubnets" {
 
 variable "databasesubnets" {
   type        = list(string)
-  description = "Database subnet values"
+  description = "Networks for database subnets"
 }
 
 ##################################################
@@ -69,5 +70,5 @@ variable "databasesubnets" {
 
 variable "database_nacl_rules" {
   type        = list(map(string))
-  description = "ACL rule to database subnet"
+  description = "ACL rules to database subnet"
 }
