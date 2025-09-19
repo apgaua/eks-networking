@@ -1,13 +1,13 @@
 variable "project_name" {
-  type = string
+  type        = string
   description = "Name of the project, it will be used in the tags and naming of resources"
 }
 variable "region" {
-  type = string
+  type        = string
   description = "The AWS region that the structure will be deployed"
 }
 variable "vpc_cidr" {
-  type = string
+  type        = string
   description = "Main VPC CIDR"
 }
 variable "vpc_additional_cidrs" {
