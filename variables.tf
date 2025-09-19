@@ -31,7 +31,7 @@ variable "publicsubnets" {
 
 variable "singlenat" {
   type        = bool
-  description = "If true, create a single NAT Gateway in the first AZ. If false, create a NAT Gateway in each public subnet."
+  description = "If true, create a single NAT Gateway/Instance in the first AZ. If false, create a NAT Gateway/Instance in each public subnet."
   default     = true
 }
 
@@ -70,5 +70,5 @@ variable "databasesubnets" {
 
 variable "database_nacl_rules" {
   type        = list(map(string))
-  description = "ACL rule to database subnet"
+  description = "ACL rules to database subnet"
 }
