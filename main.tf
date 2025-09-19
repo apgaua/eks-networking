@@ -6,7 +6,7 @@ module "network" {
   default_tags         = var.default_tags
   region               = var.region
   singlenat            = var.singlenat
-  # nat_gateway_type    = var.nat_gateway_type # GATEWAY | INSTANCE
+  nat_gateway_type = var.nat_gateway_type # GATEWAY or INSTANCE | Default: INSTANCE
   privatesubnets      = var.privatesubnets
   publicsubnets       = var.publicsubnets
   podsubnets          = var.podsubnets
