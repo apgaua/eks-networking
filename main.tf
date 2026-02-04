@@ -1,5 +1,5 @@
 module "network" {
-  source               = "github.com/apgaua/terraform-modules//networking-module"
+  source               = "github.com/apgaua/terraform-modules//networking-module?ref=v1.0.5"
   project_name         = var.project_name
   vpc_cidr             = var.vpc_cidr
   vpc_additional_cidrs = var.vpc_additional_cidrs # Attention to IPv4 CIDR block association restrictions: https://docs.aws.amazon.com/vpc/latest/userguide/vpc-cidr-blocks.html

@@ -1,4 +1,4 @@
-project_name         = "EKS"
+project_name         = "eks"
 region               = "us-east-1"
 vpc_cidr             = "10.0.0.0/16"
 vpc_additional_cidrs = ["100.64.0.0/16"] # Attention to IPv4 CIDR block association restrictions: https://docs.aws.amazon.com/vpc/latest/userguide/vpc-cidr-blocks.html
