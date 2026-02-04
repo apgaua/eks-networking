@@ -101,3 +101,4 @@ terragrunt-debug.tfvars.json
 
 .infracost
 # End of https://www.toptal.com/developers/gitignore/api/macos,terraform,terragrunt,visualstudiocode
+.agent/*
