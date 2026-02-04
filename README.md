@@ -48,7 +48,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_network"></a> [network](#module\_network) | github.com/apgaua/terraform-modules//networking-module | n/a |
+| <a name="module_network"></a> [network](#module\_network) | github.com/apgaua/terraform-modules//networking-module | v1.0.5 |
 
 
 
